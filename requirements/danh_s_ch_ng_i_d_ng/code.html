@@ -1,0 +1,290 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>User Management Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#ffd2be",
+                        "outline-variant": "#c7c4d8",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-surface": "#2d3133",
+                        "on-primary": "#ffffff",
+                        "secondary": "#505f76",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#dad7ff",
+                        "tertiary-fixed-dim": "#ffb695",
+                        "surface-tint": "#4d44e3",
+                        "tertiary-container": "#a44100",
+                        "surface-container-high": "#e6e8ea",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "on-surface": "#191c1e",
+                        "inverse-primary": "#c3c0ff",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container": "#eceef0",
+                        "primary": "#3525cd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#351000",
+                        "outline": "#777587",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#54647a",
+                        "tertiary": "#7e3000",
+                        "on-error-container": "#93000a",
+                        "background": "#f7f9fb",
+                        "on-background": "#191c1e",
+                        "on-surface-variant": "#464555",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "primary-container": "#4f46e5",
+                        "on-primary-fixed": "#0f0069",
+                        "tertiary-fixed": "#ffdbcc",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e0e3e5",
+                        "primary-fixed": "#e2dfff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "surface": "#f7f9fb",
+                        "secondary-container": "#d0e1fb",
+                        "secondary-fixed": "#d3e4fe",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "md": "16px",
+                        "base": "8px",
+                        "container-margin": "32px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "gutter": "20px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "mono-sm": ["JetBrains Mono"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "mono-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="bg-surface-container-low dark:bg-inverse-surface docked left-0 h-screen w-64 border-r border-outline-variant dark:border-outline flat no shadows fixed left-0 top-0 h-full flex flex-col p-lg z-50">
+<div class="mb-lg">
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed">AdminConsole</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Management Suite</p>
+</div>
+<ul class="flex flex-col gap-base font-label-md text-label-md">
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container dark:bg-secondary-fixed-dim text-on-secondary-container dark:text-on-secondary-fixed rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-colors active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                    Users
+                </a>
+</li>
+
+
+</ul>
+<div class="mt-auto flex items-center gap-3 pt-lg border-t border-outline-variant">
+<img alt="Admin User Avatar" class="w-10 h-10 rounded-full object-cover bg-surface-variant" data-alt="A small, professional headshot of an administrator in a well-lit, corporate environment. The image is cropped in a circle. High quality, clear, modern lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnDAASBrqHyM0A6zX2EB3RXi_o57COFRWkNVosMUheT4PmFD6BotGty5ISh6yNX-QITJNT3Du0eoLo5Wr7xF4imICw9-cBn-fVl8n3B-flEwb5A0CGWaG-uOzao9ySTxguTcmvumyy0LJ4kjsue0gUjNNDJqK8i7u8ny9dD_lKwqZSVVhcIPqeSTu1P8Np00v95oAo7tCkKW4bjQTg14vyXVSREO3Rikfa0AWcoSGQWFE5Gjmz_e--">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Admin User</span>
+<span class="font-body-md text-body-md text-on-surface-variant">admin@system.com</span>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col ml-64 overflow-hidden bg-background">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-on-surface docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows sticky top-0 z-40 flex justify-between items-center h-16 px-xl">
+<div class="flex items-center gap-md font-headline-sm text-headline-sm font-semibold text-on-surface dark:text-inverse-on-surface">
+                User Management
+            </div>
+<div class="flex items-center gap-md">
+<div class="relative focus-within:ring-2 focus-within:ring-primary rounded-full transition-all">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-body-md focus:outline-none focus:border-primary w-64" placeholder="Search..." type="text">
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<img alt="Current User" class="w-8 h-8 rounded-full object-cover ml-2 cursor-pointer border border-outline-variant" data-alt="A professional headshot of the current user in a bright office setting. Circular crop, high resolution, modern corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBWHJMbxI2BRn15XHzMzRqmkDroaAAJDcemHlvzH9ISInAky4MiYtitq2IWopcENYuY394_eHveo3xPq-r-WiRVqa4GEozhEbpsWXccVX4sclc_2iQr03ecFZhr_PNeqW2QyxZZEygCTrVlK5J6BGgjQ5uOGhwAUNHapExhpaW84cbJPJvIei-xenpR0LOa24SppE6L93gMxGkfhpVS7Nvsfu5znbXR3kx6TaudRblS3TyDx1XfY6z">
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 overflow-y-auto p-container-margin">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs">User Management</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage your application users and their roles.</p>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-4 py-2 rounded-lg hover:bg-primary-container transition-colors flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+                    Add User
+                </button>
+</div>
+<!-- Data Table Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant font-label-sm text-label-sm text-on-surface-variant">
+<th class="px-md py-3 font-semibold w-24">ID</th>
+<th class="px-md py-3 font-semibold">User</th>
+<th class="px-md py-3 font-semibold">Email</th>
+<th class="px-md py-3 font-semibold">Age</th>
+<th class="px-md py-3 font-semibold">Created At</th>
+<th class="px-md py-3 font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface">
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group">
+<td class="px-md py-4 font-mono-sm text-mono-sm text-outline">#USR-001</td>
+<td class="px-md py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover bg-surface-variant" data-alt="A small, professional headshot of a software developer. Bright lighting, clean background, modern minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGALu2Ka39c1rIWT4hjQzIaDbyzvDZ3TJin3wMnBPsuWIwObGicdO-NNMvBYhUJEHgms9ma0g3hcvTcSU4hoFmyPJ86m6djP_5tFt0gwgZ9Q_3Oea721sFGoY9RceqymLxATSGrja6m9ILqwJHFAD3DYWWqWNQexooaFMTKPHRKvQgZRF6oEhYZ5f-JekhalJGFOH_5xE4J74VuZFLMizNAN1th2osbhfhyHvxayKQWbokB8IZmmeK">
+<span class="font-label-md text-label-md">Sarah Jenkins</span>
+</div>
+</td>
+<td class="px-md py-4 text-on-surface-variant">sarah.j@example.com</td>
+<td class="px-md py-4 text-on-surface-variant">28</td>
+<td class="px-md py-4 text-on-surface-variant">Oct 12, 2023</td>
+<td class="px-md py-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors rounded hover:bg-surface-container-highest"><span class="material-symbols-outlined" data-icon="visibility" style="font-size: 20px;">visibility</span></button>
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors rounded hover:bg-surface-container-highest"><span class="material-symbols-outlined" data-icon="edit" style="font-size: 20px;">edit</span></button>
+<button class="p-1 text-on-surface-variant hover:text-error transition-colors rounded hover:bg-error-container"><span class="material-symbols-outlined" data-icon="delete" style="font-size: 20px;">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group">
+<td class="px-md py-4 font-mono-sm text-mono-sm text-outline">#USR-002</td>
+<td class="px-md py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover bg-surface-variant" data-alt="A small, professional headshot of a marketing manager. Friendly expression, well-lit, simple office background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOO_jnvSChw8kMSjNHgb1DDBpn_70kFR3fwBHL6D0h93M5o8jvRmCJepIFC6TCk42-5QcZnrMj5kaMKSJlE3g3e3FtJ6iBIFynQ6TEIzr9WOphxlbmDGHXVmKgCJ1m9QkH8DutuwCf0-GeF6--MOQ5ehGQy_l5NPefsC7_HDmHV-QANWlxh6_GlH0A3lCFJLhlAAFrhWyjiOphKz1s-L-6y5dro798ohGejiHWqeEiNT9Sj4KqLhfx">
+<span class="font-label-md text-label-md">Marcus Thorne</span>
+</div>
+</td>
+<td class="px-md py-4 text-on-surface-variant">m.thorne@example.com</td>
+<td class="px-md py-4 text-on-surface-variant">34</td>
+<td class="px-md py-4 text-on-surface-variant">Nov 05, 2023</td>
+<td class="px-md py-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors rounded hover:bg-surface-container-highest"><span class="material-symbols-outlined" data-icon="visibility" style="font-size: 20px;">visibility</span></button>
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors rounded hover:bg-surface-container-highest"><span class="material-symbols-outlined" data-icon="edit" style="font-size: 20px;">edit</span></button>
+<button class="p-1 text-on-surface-variant hover:text-error transition-colors rounded hover:bg-error-container"><span class="material-symbols-outlined" data-icon="delete" style="font-size: 20px;">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group">
+<td class="px-md py-4 font-mono-sm text-mono-sm text-outline">#USR-003</td>
+<td class="px-md py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-md text-label-md">AL</div>
+<span class="font-label-md text-label-md">Aisha Lin</span>
+</div>
+</td>
+<td class="px-md py-4 text-on-surface-variant">alin@example.com</td>
+<td class="px-md py-4 text-on-surface-variant">29</td>
+<td class="px-md py-4 text-on-surface-variant">Dec 18, 2023</td>
+<td class="px-md py-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors rounded hover:bg-surface-container-highest"><span class="material-symbols-outlined" data-icon="visibility" style="font-size: 20px;">visibility</span></button>
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors rounded hover:bg-surface-container-highest"><span class="material-symbols-outlined" data-icon="edit" style="font-size: 20px;">edit</span></button>
+<button class="p-1 text-on-surface-variant hover:text-error transition-colors rounded hover:bg-error-container"><span class="material-symbols-outlined" data-icon="delete" style="font-size: 20px;">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group">
+<td class="px-md py-4 font-mono-sm text-mono-sm text-outline">#USR-004</td>
+<td class="px-md py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover bg-surface-variant" data-alt="A small, professional headshot of a data analyst. Crisp focus, neutral tones, corporate minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAI4ZF2lisglTI_YN8mrOFCqK38LrPjQM_oGsAw3ZTK2d4gnzO-ILt1pxb1mkyhge7xq3MnLyr2ncm9XsEY1dXVJpJ4s07NQM5WQxyobKqePq0r5haJR3salzs4f0jfxni2YD440u-XwCkMkVh6iIxEBGleN6hC7LnrrcSqSBIHPOCYqHLEL5prgvPNj6RKtFT55y-Y-ssnMrdm_vLDv9qlbs390XWly83lB_I1Azsndc8KobhmIhZ">
+<span class="font-label-md text-label-md">David Chen</span>
+</div>
+</td>
+<td class="px-md py-4 text-on-surface-variant">d.chen@example.com</td>
+<td class="px-md py-4 text-on-surface-variant">41</td>
+<td class="px-md py-4 text-on-surface-variant">Jan 22, 2024</td>
+<td class="px-md py-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors rounded hover:bg-surface-container-highest"><span class="material-symbols-outlined" data-icon="visibility" style="font-size: 20px;">visibility</span></button>
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors rounded hover:bg-surface-container-highest"><span class="material-symbols-outlined" data-icon="edit" style="font-size: 20px;">edit</span></button>
+<button class="p-1 text-on-surface-variant hover:text-error transition-colors rounded hover:bg-error-container"><span class="material-symbols-outlined" data-icon="delete" style="font-size: 20px;">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-md py-4 font-mono-sm text-mono-sm text-outline">#USR-005</td>
+<td class="px-md py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover bg-surface-variant" data-alt="A small, professional headshot of an executive. Serious but approachable expression, soft natural lighting, modern corporate vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD99X0bmz9Z5jD_B0awa6tFXFlVt8v-9T3yo-6YcFSj3jWmITEPgGZmiTpI--jI-dkfHIdRTWl-uE95C5VX-lPgx8Ex51ul5fkOtZDfeiikJ3M5NCIdC9D3140FMKu2v_QQxg1uXtn0iCGPQiFk7_k1hEwl9DYgs0EeGJrgCH7nJ1cXRdhMRSAj4Sdika9UfV8p1KuxmeWeqk3p-NLCdixfFDHwwDMUOZt7uRbRk69NG5rXsHKiVOdF">
+<span class="font-label-md text-label-md">Elena Rodriguez</span>
+</div>
+</td>
+<td class="px-md py-4 text-on-surface-variant">elena.r@example.com</td>
+<td class="px-md py-4 text-on-surface-variant">36</td>
+<td class="px-md py-4 text-on-surface-variant">Feb 09, 2024</td>
+<td class="px-md py-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors rounded hover:bg-surface-container-highest"><span class="material-symbols-outlined" data-icon="visibility" style="font-size: 20px;">visibility</span></button>
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors rounded hover:bg-surface-container-highest"><span class="material-symbols-outlined" data-icon="edit" style="font-size: 20px;">edit</span></button>
+<button class="p-1 text-on-surface-variant hover:text-error transition-colors rounded hover:bg-error-container"><span class="material-symbols-outlined" data-icon="delete" style="font-size: 20px;">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-md py-3 border-t border-outline-variant bg-surface-container-lowest flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant">
+<span class="">Showing 1 to 5 of 5 entries</span>
+<div class="flex gap-1">
+<button class="px-2 py-1 border border-outline-variant rounded hover:bg-surface-container-low disabled:opacity-50" disabled="">Prev</button>
+<button class="px-2 py-1 bg-primary text-on-primary rounded">1</button>
+<button class="px-2 py-1 border border-outline-variant rounded hover:bg-surface-container-low disabled:opacity-50" disabled="">Next</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+
+</body></html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Management Dashboard - Delete Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#ffd2be",
+                    "outline-variant": "#c7c4d8",
+                    "surface-container-highest": "#e0e3e5",
+                    "inverse-surface": "#2d3133",
+                    "on-primary": "#ffffff",
+                    "secondary": "#505f76",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#dad7ff",
+                    "tertiary-fixed-dim": "#ffb695",
+                    "surface-tint": "#4d44e3",
+                    "tertiary-container": "#a44100",
+                    "surface-container-high": "#e6e8ea",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-tertiary-fixed-variant": "#7b2f00",
+                    "on-surface": "#191c1e",
+                    "inverse-primary": "#c3c0ff",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-container": "#eceef0",
+                    "primary": "#3525cd",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#351000",
+                    "outline": "#777587",
+                    "surface-dim": "#d8dadc",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#54647a",
+                    "tertiary": "#7e3000",
+                    "on-error-container": "#93000a",
+                    "background": "#f7f9fb",
+                    "on-background": "#191c1e",
+                    "on-surface-variant": "#464555",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "surface-bright": "#f7f9fb",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "primary-container": "#4f46e5",
+                    "on-primary-fixed": "#0f0069",
+                    "tertiary-fixed": "#ffdbcc",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e0e3e5",
+                    "primary-fixed": "#e2dfff",
+                    "on-secondary-fixed": "#0b1c30",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "surface": "#f7f9fb",
+                    "secondary-container": "#d0e1fb",
+                    "secondary-fixed": "#d3e4fe",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "md": "16px",
+                    "base": "8px",
+                    "container-margin": "32px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "gutter": "20px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "mono-sm": ["JetBrains Mono"],
+                    "display-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "mono-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Modal Overlay Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .modal-overlay {
+            animation: fadeIn 0.2s ease-out;
+        }
+        .modal-content {
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* Toast Animation */
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(32px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .toast-notification {
+            animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .toast-notification.hide {
+            animation: slideOutRight 0.2s ease-in forwards;
+        }
+        @keyframes slideOutRight {
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(32px); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full flex flex-col p-lg w-64 bg-surface-container-low border-r border-outline-variant z-30">
+<div class="flex items-center gap-3 mb-xl">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-[20px]">admin_panel_settings</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">AdminConsole</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Management Suite</p>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<!-- Users - Active (Matches intent of User Detail/Management) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-weight="fill">group</span>
+<span class="font-label-md text-label-md">Users</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-colors rounded-lg active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-colors rounded-lg active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+<div class="mt-auto pt-lg border-t border-outline-variant flex items-center gap-3">
+<img alt="Admin User Avatar" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A small, professional avatar portrait of a business administrator in a modern office setting. Clear lighting, high resolution, minimalist corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_N81VWDQnfXR2HHeDWT9-272o8I3x-qkw-8ufZ90xflp56_wfdAL6ZwnJw5DcEpdkDDNDfqvNDEDmF6fWYPPNGGI-fR-0NcZKxhKVB7VMVlqgyKR7aegrDKor8-NjXArc0MRFCydDZuPW3TvVm0wpH85rrith4RCRwJnOMtW_Ixhoc9YiR6HAHKTkTxRbv7hRq7KrlsjKY3jIcY9pd8TKe_PrTAzVmiLwe9M8uUS_Fug2-8I90wkx"/>
+<div>
+<p class="font-label-md text-label-md">Admin User</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-xs">admin@example.com</p>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 ml-64 flex flex-col h-screen relative">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-20 flex justify-between items-center h-16 px-xl bg-surface-container-lowest border-b border-outline-variant">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-96 focus-within:ring-2 focus-within:ring-primary rounded-lg transition-shadow">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:outline-none" placeholder="Search users..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-highest rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-highest rounded-full">
+<span class="material-symbols-outlined">help</span>
+</button>
+<img alt="Current User" class="w-8 h-8 rounded-full object-cover border border-outline-variant ml-2" data-alt="A small circular avatar of the current logged in user. Professional headshot, neutral background, crisp lighting, corporate saas style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCckDjJ5n-rl9T9swkDfLrfxaQJtZiuMHy4_kkViojHUKEHsekqUH88_T8K6w4IC3LxPi_aMI2-gRGyWZGmqdeGZzz9CFerKf6bGg3yUQOPdELi1hlna6DqLJLO8XS66Jyn01aCZVwW1SIBSTKZBbM2zjkxVnXXHWM8trLKnRPE9mRJfYN-_eXf9KUfsXEKAL2SbwX5zWIh8Bb-SuntAGoAVHpikKiGgLakrMBocf1OJEekMNjeDxXH"/>
+</div>
+</header>
+<!-- Canvas / User Detail View (Blurred/De-emphasized to focus on modal) -->
+<main class="flex-1 p-xl overflow-y-auto bg-background filter blur-[2px] opacity-70 pointer-events-none transition-all duration-300">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 text-on-surface-variant mb-lg">
+<span class="font-body-md text-body-md">Users</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="font-body-md text-body-md">Sarah Jenkins</span>
+</div>
+<!-- User Header -->
+<div class="flex items-center justify-between mb-xl pb-lg border-b border-outline-variant">
+<div class="flex items-center gap-lg">
+<img class="w-20 h-20 rounded-full object-cover border-2 border-surface-container-highest" data-alt="A professional portrait photo of a young female tech worker named Sarah Jenkins. She is smiling slightly, wearing casual corporate attire. The background is a bright, modern office space. High quality, well-lit, corporate photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD020NyzChvb9FdgQmrq3csQU5oCqX45QoCYxdJC00nrr7kmPupxtZBidAl8OQ_gSvKS14ye8-8aUwOFvv_i3I1LiDOhjQqKM1dk2TgvNWMF-yYQ9_lLWsjHYdqt5yJSCx-wGfbBO13MFq8CZERdbsYabJsBSxvjHNCutOEYi7WufKexqxc_WLnhmX0F4S8De4dJiiX5zitsEeQRwrsuLyKtEHZMZ5G6wZzvl6wm6ns92USMuJnNah"/>
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface">Sarah Jenkins</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Senior Product Designer • sarah.j@example.com</p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 border border-outline-variant rounded-lg font-label-md text-label-md text-secondary hover:bg-surface-container-highest transition-colors">Edit Profile</button>
+<!-- This button triggered the modal -->
+<button class="px-4 py-2 bg-error text-on-error rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+                        Delete User
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Content (Mock data for background context) -->
+<div class="grid grid-cols-12 gap-lg">
+<div class="col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg h-64">
+<h3 class="font-headline-sm text-headline-sm mb-md">Activity Overview</h3>
+<div class="w-full h-40 bg-surface-container rounded-lg flex items-center justify-center text-outline">Chart Placeholder</div>
+</div>
+<div class="col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg h-64">
+<h3 class="font-headline-sm text-headline-sm mb-md">Recent Logins</h3>
+<ul class="space-y-3">
+<li class="flex justify-between items-center py-2 border-b border-surface-container-highest">
+<span class="font-body-md text-body-md">MacBook Pro (Chrome)</span>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant">Today, 09:41 AM</span>
+</li>
+<li class="flex justify-between items-center py-2 border-b border-surface-container-highest">
+<span class="font-body-md text-body-md">iPhone 13 (Safari)</span>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant">Yesterday</span>
+</li>
+</ul>
+</div>
+</div>
+</main>
+<!-- Delete Confirmation Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/40 backdrop-blur-sm modal-overlay" id="deleteModal">
+<div class="bg-surface-container-lowest w-[560px] rounded-xl shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.05)] border border-outline-variant flex flex-col overflow-hidden modal-content">
+<!-- Modal Header -->
+<div class="flex items-center justify-between p-lg border-b border-surface-container-highest">
+<div class="flex items-center gap-3 text-error">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-error">warning</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Delete User</h2>
+</div>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors" onclick="document.getElementById('deleteModal').style.display='none'; document.querySelector('main').classList.remove('blur-[2px]', 'opacity-70', 'pointer-events-none');">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="p-lg">
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                        Are you sure you want to delete <strong class="text-on-surface font-semibold">Sarah Jenkins</strong>? This action cannot be undone and will permanently remove all associated data, settings, and history from the system.
+                    </p>
+<div class="bg-surface-container border border-outline-variant rounded-lg p-md flex items-start gap-3">
+<span class="material-symbols-outlined text-outline mt-0.5">info</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Consequences of deletion:</p>
+<ul class="font-body-md text-body-md text-on-surface-variant list-disc list-inside mt-1 space-y-1">
+<li>User will immediately lose access.</li>
+<li>Analytics history will be anonymized.</li>
+<li>Active sessions will be terminated.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="p-lg border-t border-surface-container-highest bg-surface-container-low flex justify-end gap-3 rounded-b-xl">
+<button class="px-6 py-2.5 font-label-md text-label-md text-secondary bg-surface-container-lowest border border-outline-variant rounded-lg hover:bg-surface-container-highest transition-colors focus:ring-2 focus:ring-primary focus:outline-none" onclick="document.getElementById('deleteModal').style.display='none'; document.querySelector('main').classList.remove('blur-[2px]', 'opacity-70', 'pointer-events-none');">
+                        Cancel
+                    </button>
+<button class="px-6 py-2.5 font-label-md text-label-md text-on-error bg-error rounded-lg hover:opacity-90 transition-opacity focus:ring-2 focus:ring-error focus:ring-offset-2 focus:outline-none flex items-center gap-2" onclick="simulateDelete()">
+                        Delete
+                    </button>
+</div>
+</div>
+</div>
+<!-- Success Toast Notification (Hidden by default, shown via JS) -->
+<div class="fixed top-xl right-xl z-50 flex items-center gap-3 bg-inverse-surface text-inverse-on-surface px-lg py-3 rounded-lg shadow-lg hidden" id="successToast">
+<span class="material-symbols-outlined text-primary-fixed">check_circle</span>
+<span class="font-label-md text-label-md">User deleted successfully</span>
+<button class="ml-4 text-outline-variant hover:text-inverse-on-surface transition-colors" onclick="document.getElementById('successToast').classList.add('hide'); setTimeout(() =&gt; document.getElementById('successToast').classList.add('hidden'), 200);">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<script>
+        // Simple interaction script to demonstrate flow
+        function simulateDelete() {
+            // Hide modal
+            document.getElementById('deleteModal').style.display = 'none';
+            // Unblur background (simulate returning to list view eventually)
+            document.querySelector('main').classList.remove('blur-[2px]', 'opacity-70', 'pointer-events-none');
+            
+            // Show toast
+            const toast = document.getElementById('successToast');
+            toast.classList.remove('hidden', 'hide');
+            toast.classList.add('toast-notification');
+            
+            // Auto hide toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.add('hide');
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                    toast.classList.remove('hide', 'toast-notification');
+                }, 200); // Wait for exit animation
+            }, 3000);
+        }
+    </script>
+</body></html>

@@ -1,1 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --bg: #f7f9fb;
+  --surface: #ffffff;
+  --surface-soft: #f3f6fa;
+  --surface-muted: #eef2f8;
+  --border: #cfd7e6;
+  --border-strong: #b9c4d9;
+  --text: #111827;
+  --text-soft: #55627a;
+  --text-muted: #6b7280;
+  --primary: #2f2be4;
+  --primary-strong: #2119c6;
+  --primary-soft: #dce2ff;
+  --primary-soft-text: #3341a4;
+  --success-bg: #e7f8ee;
+  --success-text: #167d47;
+  --warning-bg: #fff1db;
+  --warning-text: #9c5d00;
+  --danger-bg: #fde8e8;
+  --danger-text: #b42318;
+  --shadow: 0 20px 40px -24px rgba(17, 24, 39, 0.24);
+  --radius-lg: 20px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+}
+
+html {
+  background: radial-gradient(circle at top left, #fbfcff 0%, var(--bg) 42%, #eef3fb 100%);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(47, 43, 228, 0.07), transparent 24%),
+    radial-gradient(circle at 92% 20%, rgba(76, 86, 255, 0.06), transparent 18%),
+    var(--bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(47, 43, 228, 0.14);
+}
+
+.font-mono-ui {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.glass-border {
+  border: 1px solid rgba(203, 213, 225, 0.95);
+}
+
+.soft-shadow {
+  box-shadow: var(--shadow);
+}
+
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(47, 43, 228, 0.18);
+}

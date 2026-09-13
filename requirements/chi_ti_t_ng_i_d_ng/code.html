@@ -1,0 +1,306 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>User Management - User Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-container": "#ffd2be",
+                      "outline-variant": "#c7c4d8",
+                      "surface-container-highest": "#e0e3e5",
+                      "inverse-surface": "#2d3133",
+                      "on-primary": "#ffffff",
+                      "secondary": "#505f76",
+                      "error-container": "#ffdad6",
+                      "on-primary-container": "#dad7ff",
+                      "tertiary-fixed-dim": "#ffb695",
+                      "surface-tint": "#4d44e3",
+                      "tertiary-container": "#a44100",
+                      "surface-container-high": "#e6e8ea",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-tertiary-fixed-variant": "#7b2f00",
+                      "on-surface": "#191c1e",
+                      "inverse-primary": "#c3c0ff",
+                      "on-error": "#ffffff",
+                      "surface-container-low": "#f2f4f6",
+                      "surface-container": "#eceef0",
+                      "primary": "#3525cd",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed": "#351000",
+                      "outline": "#777587",
+                      "surface-dim": "#d8dadc",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-container": "#54647a",
+                      "tertiary": "#7e3000",
+                      "on-error-container": "#93000a",
+                      "background": "#f7f9fb",
+                      "on-background": "#191c1e",
+                      "on-surface-variant": "#464555",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "surface-bright": "#f7f9fb",
+                      "on-primary-fixed-variant": "#3323cc",
+                      "primary-container": "#4f46e5",
+                      "on-primary-fixed": "#0f0069",
+                      "tertiary-fixed": "#ffdbcc",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e0e3e5",
+                      "primary-fixed": "#e2dfff",
+                      "on-secondary-fixed": "#0b1c30",
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "surface": "#f7f9fb",
+                      "secondary-container": "#d0e1fb",
+                      "secondary-fixed": "#d3e4fe",
+                      "primary-fixed-dim": "#c3c0ff",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "md": "16px",
+                      "base": "8px",
+                      "container-margin": "32px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "xs": "4px",
+                      "gutter": "20px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "mono-sm": [
+                              "jetbrainsMono"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "mono-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md h-full flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full flex flex-col p-lg w-64 bg-surface-container-low dark:bg-inverse-surface border-r border-outline-variant dark:border-outline z-50">
+<div class="mb-lg px-4">
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed">AdminConsole</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">Management Suite</p>
+</div>
+<div class="flex-1 flex flex-col gap-sm">
+<!-- Active: Users (since this is User Details) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container dark:bg-secondary-fixed-dim text-on-secondary-container dark:text-on-secondary-fixed rounded-lg active:scale-95 transition-transform font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+                Users
+            </a>
+
+
+</div>
+<div class="mt-auto px-4 pt-4 border-t border-outline-variant">
+<div class="flex items-center gap-3">
+<img alt="Admin User Avatar" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a corporate administrator in a modern office setting. The lighting is soft and natural, emphasizing a calm and reliable demeanor suitable for a modern SaaS environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-vK8jwd7xlWguNhZN5dYP27v2_B_SdZZ2p4N7nuFcarNUEKHXdTQamML0xinJAE7344czBbqggyrYmAVUbYis2QHQXU2P_002ssxI3Qx3Xi3lmZzNXX_zCnc-8Rk6A2ssJXKG-l78ZqYsv-NAOzvU3azzI3s8xbMdqSzTwTz_U93HYY1zx_8J9OkO6ksUj588h8fSuaLNm6QNWE6duP5yKQcuwB1m0yaeIoRa9t0mTZVtqVd_b2lt">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Admin User</p>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 ml-64 flex flex-col h-full overflow-hidden">
+<!-- TopNavBar (Navigating away from main shell rule: Suppressed as this is a sub-page/details view, but keeping header context for structure) -->
+<header class="sticky top-0 z-40 flex justify-between items-center h-16 px-xl bg-surface-container-lowest dark:bg-on-surface border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-md">
+<!-- Back Button (Sub-page departure implied) -->
+<button class="flex items-center gap-xs text-secondary hover:text-primary transition-colors focus-within:ring-2 focus-within:ring-primary rounded-DEFAULT px-2 py-1 font-label-md text-label-md">
+<span class="material-symbols-outlined">arrow_back</span>
+                    Back to Users
+                </button>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md text-on-surface-variant">
+<button class="hover:text-primary transition-colors focus-within:ring-2 focus-within:ring-primary rounded-full p-1"><span class="material-symbols-outlined">notifications</span></button>
+<button class="hover:text-primary transition-colors focus-within:ring-2 focus-within:ring-primary rounded-full p-1"><span class="material-symbols-outlined">help</span></button>
+</div>
+<img alt="Current User" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A small circular avatar of the currently logged-in user, a minimalist vector portrait in soft corporate blues and slates." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc64DM2jloLvaMemU3X2Jpc3hfzO5m2BDNVTB1gXgDCqXzAIsC_gxn5_p6NpURLve8N1z2-3jGwr0B9XZOV4W4KCZUZ5siZQVQtzmhf2eWukASmg9xGdRZ1gLNsP6upN39lJ4RNL8w9n7eMeP2c56pyX0zPN96ZXXcoFBsfRsYIhKfti6IQ7gz75tIWQgQTJArL4RYKdiFdqxibAr336e59UMs6qDDzh1MRC0Mzy_UwR8tDgvzLVbu">
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 overflow-y-auto p-container-margin bg-background">
+<!-- Header Actions -->
+<div class="flex justify-between items-center mb-xl">
+<h2 class="font-display-lg text-display-lg text-on-surface">User Details</h2>
+<div class="flex gap-md">
+<button class="px-4 py-2 bg-white border border-slate-200 text-slate-700 font-label-md text-label-md rounded-DEFAULT hover:bg-slate-50 transition-colors focus:ring-2 focus:ring-primary focus:outline-none">
+                        Edit User
+                    </button>
+<button class="px-4 py-2 bg-error text-on-error font-label-md text-label-md rounded-DEFAULT hover:bg-red-800 transition-colors focus:ring-2 focus:ring-error focus:outline-none">
+                        Delete User
+                    </button>
+</div>
+</div>
+<!-- Two Column Layout (Bento-style Cards) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Column: User Profile -->
+<div class="lg:col-span-8">
+<div class="bg-white rounded-lg border border-slate-200 p-xl flex flex-col md:flex-row gap-xl items-start shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.05)]">
+<div class="shrink-0 relative">
+<img alt="User Avatar Large" class="w-32 h-32 rounded-full object-cover border-2 border-surface-container-high" data-alt="A large, highly detailed portrait of a professional individual representing a user profile. The subject is well-lit in a studio setting with a clean, light-mode aesthetic background. The overall tone is polished, corporate, and minimalist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwdfl9uzBUaWDeDo6YPJh_CzV2swvJjRijWj7r3oUmWxkdYH22LgZLyni8UiboOHyKjUtHBMew7B7eAiK-5TjWFaZf67avs72q8fsBBmMu0fXxZQwnUWqWWMmspyvuA5mDBaLQ0c_ryWRget-15pSPbKOCORNZiR7Dg-qzaYilvOHVIF3iglLTNWUOqFOmYxZgDjNVWYd17S4K3jRJaDd-pteeB5k71Je80Ll8IQhwa8wWjIZHUy5l">
+<span class="absolute bottom-2 right-2 w-4 h-4 bg-emerald-400 border-2 border-white rounded-full"></span>
+</div>
+<div class="flex-1 flex flex-col gap-md">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Sarah Jenkins</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+                                    sarah.jenkins@example.com
+                                </p>
+</div>
+<div class="grid grid-cols-2 gap-md mt-sm">
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-xs uppercase">Role</p>
+<div class="inline-flex items-center px-2 py-1 rounded-sm bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+                                        Administrator
+                                    </div>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-xs uppercase">Department</p>
+<p class="font-body-md text-body-md text-on-surface">Engineering</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-xs uppercase">Age</p>
+<p class="font-body-md text-body-md text-on-surface">32</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-xs uppercase">Location</p>
+<p class="font-body-md text-body-md text-on-surface">San Francisco, CA</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Meta-data -->
+<div class="lg:col-span-4 flex flex-col gap-lg">
+<div class="bg-white rounded-lg border border-slate-200 p-lg shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.05)]">
+<h4 class="font-headline-sm text-headline-sm text-on-surface border-b border-surface-container-high pb-sm mb-md">System Data</h4>
+<div class="flex flex-col gap-md">
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-xs uppercase">User ID</p>
+<p class="font-mono-sm text-mono-sm text-on-surface-variant bg-surface-container-low p-2 rounded-DEFAULT border border-surface-container-high">USR-9482-BXZ</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-xs uppercase">Created At</p>
+<p class="font-body-md text-body-md text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-outline-variant">calendar_today</span>
+                                    Oct 12, 2023, 08:14 AM
+                                </p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-xs uppercase">Last Updated</p>
+<p class="font-body-md text-body-md text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-outline-variant">update</span>
+                                    2 hours ago
+                                </p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-xs uppercase">Account Status</p>
+<div class="inline-flex items-center px-2 py-1 rounded-sm bg-emerald-50 text-emerald-700 border border-emerald-200 font-label-sm text-label-sm">
+                                    Active
+                                </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+
+</body></html>
