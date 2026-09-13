@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const apiClient = axios.create({
-  baseURL: "https://crud-user-production-f2a5.up.railway.app/api",
+  baseURL: "https://crud-user-1-g9zk.onrender.com/api",
   headers: { "Content-Type": "application/json" },
 });
 
